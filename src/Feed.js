@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import CreateIcon from '@mui/icons-material/Create';
 import './Feed.css'
 import InputOption from './InputOption';
@@ -7,8 +7,14 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import EventIcon from '@mui/icons-material/Event';
 import ArticleIcon from '@mui/icons-material/Article';
 import Post from './Post';
+//we are going to connect to firebase now
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+  const setPosts = (e) => {
+    e.preventDefault()
+  }
   return (
     <div className='feed'>
         <div className='feed_inputContainer'>
@@ -16,7 +22,7 @@ function Feed() {
                 <CreateIcon/>
                 <form>
                     <input type="text"/>
-                    <button type='submit'>Send</button>
+                    <button onClick={setPosts} type='submit'>Send</button>
                 </form>
             </div>
 
@@ -29,6 +35,9 @@ function Feed() {
             </div>
 
           {/* post */}
+          {posts.map((post)=>{
+            <Post/>
+          })}
         </div>
         
         <Post name='Oselukwue Kinyichukwu' description='description' message='This is a message' photoUrl=''/>
