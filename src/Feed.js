@@ -8,6 +8,7 @@ import EventIcon from '@mui/icons-material/Event';
 import ArticleIcon from '@mui/icons-material/Article';
 import Post from './Post';
 //we are going to connect to firebase now
+// remember to install firebase
 
 function Feed() {
   const [posts, setPosts] = useState([]);
